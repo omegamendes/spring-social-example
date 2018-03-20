@@ -20,8 +20,11 @@ import javax.validation.Valid;
 
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.User;
 import org.springframework.social.showcase.account.Account;
 import org.springframework.social.showcase.account.AccountRepository;
 import org.springframework.social.showcase.account.UsernameAlreadyInUseException;
@@ -54,7 +57,17 @@ public class SignupController {
 		Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
 		if (connection != null) {
 			request.setAttribute("message", new Message(MessageType.INFO, "Your " + StringUtils.capitalize(connection.getKey().getProviderId()) + " account is not associated with a Spring Social Showcase account. If you're new, please sign up."), WebRequest.SCOPE_REQUEST);
-			return SignupForm.fromProviderUser(connection.fetchUserProfile());
+
+			Facebook facebook = (Facebook) connection.getApi();
+			String [] fields = { "id", "email",  "first_name", "last_name" };
+			User userProfile = facebook.fetchObject("me", User.class, fields);
+
+			SignupForm form = new SignupForm();
+			form.setFirstName(userProfile.getFirstName());
+			form.setLastName(userProfile.getLastName());
+			form.setUsername(userProfile.getId());
+
+			return form;
 		} else {
 			return new SignupForm();
 		}
