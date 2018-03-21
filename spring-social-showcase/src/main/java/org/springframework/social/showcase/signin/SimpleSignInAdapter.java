@@ -15,11 +15,11 @@
  */
 package org.springframework.social.showcase.signin;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
@@ -31,7 +31,7 @@ public class SimpleSignInAdapter implements SignInAdapter {
 
 	private final RequestCache requestCache;
 
-	@Inject
+	@Autowired
 	public SimpleSignInAdapter(RequestCache requestCache) {
 		this.requestCache = requestCache;
 	}

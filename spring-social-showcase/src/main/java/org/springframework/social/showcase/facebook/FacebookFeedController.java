@@ -15,8 +15,8 @@
  */
 package org.springframework.social.showcase.facebook;
 
-import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +28,7 @@ public class FacebookFeedController {
 
 	private final Facebook facebook;
 
-	@Inject
+	@Autowired
 	public FacebookFeedController(Facebook facebook) {
 		this.facebook = facebook;
 	}

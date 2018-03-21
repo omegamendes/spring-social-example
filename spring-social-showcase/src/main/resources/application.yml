@@ -1,19 +1,19 @@
 spring:
   social:
     facebook:
-      app-id: 2078632865749121
-      app-secret: 3232e4e431a11ffccbfc722cd0fd2493
+      #app-id: 2078632865749121
+      #app-secret: 3232e4e431a11ffccbfc722cd0fd2493
       # app pv
-      #app-id: 191317418149245
-      #app-secret: 6ae699f360dbf5516e6fdeac60861750
+      app-id: 191317418149245
+      app-secret: 6ae699f360dbf5516e6fdeac60861750
 server:
   port: 8443
   require-ssl: true
   ssl:
     key-store-type: JKS
-    key-store: /home/s2it_mmendes/keystore.jks
-    key-store-password: changeit
+    #key-store: /home/s2it_mmendes/keystore.jks
+    #key-store-password: changeit
     #keystore pv
-    #key-store: /home/pv/workspace/keystore.jks
-    #key-store-password: teste123
+    key-store: /home/pv/workspace/keystore.jks
+    key-store-password: teste123
     key-alias: tomcat

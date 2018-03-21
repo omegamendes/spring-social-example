@@ -20,6 +20,7 @@ import java.sql.SQLException;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -34,7 +35,7 @@ public class JdbcAccountRepository implements AccountRepository {
 
 	private final PasswordEncoder passwordEncoder;
 
-	@Inject
+	@Autowired
 	public JdbcAccountRepository(JdbcTemplate jdbcTemplate, PasswordEncoder passwordEncoder) {
 		this.jdbcTemplate = jdbcTemplate;
 		this.passwordEncoder = passwordEncoder;

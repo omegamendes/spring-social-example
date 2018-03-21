@@ -15,9 +15,9 @@
  */
 package org.springframework.social.showcase.signup;
 
-import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UserProfile;
@@ -44,7 +44,7 @@ public class SignupController {
 	private final AccountRepository accountRepository;
 	private final ProviderSignInUtils providerSignInUtils;
 
-	@Inject
+	@Autowired
 	public SignupController(AccountRepository accountRepository, 
 		                    ConnectionFactoryLocator connectionFactoryLocator,
 		                    UsersConnectionRepository connectionRepository) {

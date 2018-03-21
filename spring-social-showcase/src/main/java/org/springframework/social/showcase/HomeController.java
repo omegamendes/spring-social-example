@@ -20,6 +20,7 @@ import java.security.Principal;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.showcase.account.AccountRepository;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ public class HomeController {
 	
 	private final AccountRepository accountRepository;
 
-	@Inject
+	@Autowired
 	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository) {
 		this.connectionRepositoryProvider = connectionRepositoryProvider;
 		this.accountRepository = accountRepository;

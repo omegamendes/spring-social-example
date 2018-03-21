@@ -15,7 +15,6 @@
  */
 package org.springframework.social.showcase.config;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private ApplicationContext context;
 	
-	@Inject
+	@Autowired
 	private DataSource dataSource;
 	
 	@Autowired

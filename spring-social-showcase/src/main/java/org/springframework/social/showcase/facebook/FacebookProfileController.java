@@ -15,8 +15,8 @@
  */
 package org.springframework.social.showcase.facebook;
 
-import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class FacebookProfileController {
 	
-	@Inject
+	@Autowired
 	private ConnectionRepository connectionRepository;
 
 	@RequestMapping(value="/facebook", method=RequestMethod.GET)
